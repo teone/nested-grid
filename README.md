@@ -17,7 +17,7 @@ This size are defined in the container section and base on the media query break
 - $screen-md: 1024px;
 - $screen-lg: 1280px;
 
-## Usage
+## Sintax
 
 Single level Grid:
 ```
@@ -54,6 +54,17 @@ Nested Grid:
 </div>
 ```
 *Important: as per this state of development two levels are the maximum supported.*
+
+## Sample Result
+!(sample.png)
+
+## Usage
+If you want to use the default style, just download the `css/grid.css` and remove or customize the _Demo Styles_ part.
+
+If you want to customize the grid, change the colums number, gutter or breakpoint, keep in mind that this grid is processed with Grunt so:
+- Clone this repo
+- Run `npm install` from the root folder
+- Run `grunt watch` to compile the grid every change you made to it or `grunt compass` to just compile once.
 
 Feel free to report bug and suggestion.
 
