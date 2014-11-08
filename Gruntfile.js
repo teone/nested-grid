@@ -18,10 +18,20 @@ module.exports = function(grunt) {
                     'grid.css': 'grid.scss'
                 }
             }
+        },
+        compass: {
+            dist: {
+                options: {              // Target options
+                    sassDir: 'sass',
+                    cssDir: 'css',
+                    environment: 'production'
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
 };
