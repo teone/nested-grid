@@ -56,7 +56,7 @@ Nested Grid:
 *Important: as per this state of development two levels are the maximum supported.*
 
 ## Sample Result
-!(sample.png)
+!(https://raw.githubusercontent.com/teone/nested-grid/master/sample.png)
 
 ## Usage
 If you want to use the default style, just download the `css/grid.css` and remove or customize the _Demo Styles_ part.
