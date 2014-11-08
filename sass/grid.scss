@@ -3,30 +3,63 @@ $gutter: 2%;
 
 $one_col: (100% - ($gutter * ($cols - 1))) / $cols;
 
+/*-------------------------------- Container --------------------------------*/
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+
+    @media screen and (min-width: 768px) {
+        width: 720px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 960px;
+    }
+
+    @media screen and (min-width: 1280px) {
+        width: 1200px;
+    }
+}
+
+/*-------------------------------- Mixins --------------------------------*/
+
 @mixin cols($num) {
-    width: ($one_col * $num) + ($gutter * ($num - 1));
+    width: 100%;
+
+    @media screen and (min-width: 768px){
+        width: ($one_col * $num) + ($gutter * ($num - 1));
+    }
 }
 
 @mixin sub_cols($num_child, $num_parent) {
     $parent_size: ($one_col * $num_parent) + ($gutter * ($num_parent - 1));
     $child_size: ($one_col * $num_child) + ($gutter * ($num_child - 1));
-    margin-left: ($gutter / $parent_size) * 100%;
-    width: ($child_size / $parent_size) * 100%;
+    width: 100%;
+
+    @media screen and (min-width: 768px){
+        margin-left: ($gutter / $parent_size) * 100%;
+        width: ($child_size / $parent_size) * 100%;
+    }
 }
 
-/* @group grid */
+/*-------------------------------- Grid --------------------------------*/
 .row {
     #{enumerate(".col", 1, $cols)} {
         float: left;
-        margin-left: $gutter;
+        margin-top: 10px;
+        @media screen and (min-width: 768px){
+            margin-left: $gutter;
+            margin-top: 0;
+        }
     }
 
     @for $i from 1 through $cols {
-        .col#{$i} {
+        .col-#{$i} {
             @include cols($i);
             
             @for $j from 1 through ($i - 1) {
-                .col#{$j} {
+                .col-#{$j} {
                     @include sub_cols($j, $i);
                 }
             }
@@ -36,6 +69,7 @@ $one_col: (100% - ($gutter * ($cols - 1))) / $cols;
     > :first-child,
     .row > :first-child {
         margin-left: 0;
+        margin-top: 0;
     }
 }
 
@@ -58,7 +92,7 @@ $one_col: (100% - ($gutter * ($cols - 1))) / $cols;
 /* @end */
 
 
-// Below is just for the demo
+/*-------------------------------- Demo Styles --------------------------------*/
 
 
 @import "compass/css3";

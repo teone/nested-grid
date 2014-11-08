@@ -5,26 +5,19 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             scripts: {
-                files: ['grid.scss'],
-                tasks: ['sass'],
+                files: ['sass/grid.scss'],
+                tasks: ['compass'],
                 options: {
                     livereload: true,
                 },
             },
-        },
-        sass: {
-            dist: {
-                files: {
-                    'grid.css': 'grid.scss'
-                }
-            }
         },
         compass: {
             dist: {
                 options: {              // Target options
                     sassDir: 'sass',
                     cssDir: 'css',
-                    environment: 'production'
+                    outputStyle: 'expanded'
                 }
             }
         }
